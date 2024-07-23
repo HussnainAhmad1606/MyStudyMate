@@ -20,9 +20,15 @@ MyStudyMate is an open-source study tool designed to help students create and ma
 - **Analytics Page:** Track your study progress and view insights.
 - **Study Session Page:** Set up and manage your study sessions.
 
-## Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/mystudymate.git
-   cd mystudymate
+
+## Contributing
+
+Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details on how you can help improve MyStudyMate.
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
