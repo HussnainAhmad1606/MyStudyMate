@@ -3,9 +3,12 @@ import Link from 'next/link'
 import React from 'react'
 import { useUserStore } from '@/store/store'
 import DropdownProfile from './DropdownProfile'
+import Sidebar from './Sidebar'
 function Navbar() {
   const isLogin = useUserStore(state => state.isLogin)
   return (
+    <div className='flex justify-evenly'>
+    <Sidebar/>
     <div className="navbar bg-base-100">
     <div className="navbar-start">
       <div className="dropdown">
@@ -31,7 +34,11 @@ function Navbar() {
           <li><Link href={"/features"}>Contact</Link></li>
         </ul>
       </div>
-      <a className="btn btn-ghost text-xl">MyStudyMate</a>
+      <a className="btn btn-ghost text-xl">{
+        // isLogin?(
+          // <Sidebar/>
+        // ):null
+      } MyStudyMate</a>
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
@@ -48,13 +55,15 @@ function Navbar() {
        
       ):(
         <>
-        <button className="btn btn-neutral mx-3">Signup</button>
-<button className="btn btn-primary">Login</button>
+        <Link href={"/signup"} className="btn btn-neutral mx-3">Signup</Link>
+<Link href={"/login"} className="btn btn-primary">Login</Link>
         </>
       )
     }
     </div>
   </div>
+  
+</div>
   )
 }
 

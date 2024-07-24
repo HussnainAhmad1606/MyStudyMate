@@ -1,14 +1,15 @@
 
 import bcrypt from 'bcryptjs';
-import User from "@/models/User"
+import User from "@/models/User";
+import connectDB from '@/middlewares/connectDB';
 const signupHandler = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).end(); // Method Not Allowed
   }
 
-  const { username, password } = req.body;
+  const { Username, Password, FirstName, LastName } = req.body;
 
-  const user = await User.findOne({username: username})
+  const user = await User.findOne({username: Username})
 
   if (user) {
     return res.status(400).json({message: "User already exists", type: "error"})
@@ -19,12 +20,12 @@ const signupHandler = async (req, res) => {
 
 
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(Password, salt);
 
         let user = new User({
-            username: req.body.username,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            username: req.body.Username,
+            firstName: req.body.FirstName,
+            lastName: req.body.LastName,
             password: hashedPassword
         })
     
@@ -33,4 +34,4 @@ const signupHandler = async (req, res) => {
     }
 };
 
-export default signupHandler;
+export default connectDB(signupHandler);
