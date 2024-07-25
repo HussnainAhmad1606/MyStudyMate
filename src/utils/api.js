@@ -6,8 +6,8 @@ const api = axios.create({
 
 api.interceptors.request.use(
   async (config) => {
-    let token = localStorage.getItem('token');
-    const refreshToken = localStorage.getItem('refreshToken');
+    let token = localStorage.getItem('studymate_token');
+    const refreshToken = localStorage.getItem('studymate_refresh_token');
 
     if (token) {
       const { exp } = JSON.parse(atob(token.split('.')[1]));
@@ -18,7 +18,7 @@ api.interceptors.request.use(
           try {
             const response = await axios.post('/api/refresh', { refreshToken });
             token = response.data.token;
-            localStorage.setItem('token', token);
+            localStorage.setItem('studymate_token', token);
           } catch (error) {
             console.error('Failed to refresh token:', error);
           }

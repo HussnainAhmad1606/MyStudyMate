@@ -14,7 +14,9 @@ function Sidebar() {
     console.log(pathname)
   
   return (
-    <div className="my-5 w-[10%] drawer">
+    <div style={{
+      zIndex: 99
+    }} className="my-5 w-[10%] drawer">
     <input id="my-drawer" type="checkbox" className="drawer-toggle" />
     <div className="drawer-content">
       {/* Page content here */}

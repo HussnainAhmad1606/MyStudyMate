@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "@google/generative-ai": "^0.15.0",
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
+    "date-fns": "^3.6.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.1",
     "next": "14.2.5",
