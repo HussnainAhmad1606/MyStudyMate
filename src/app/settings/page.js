@@ -3,12 +3,33 @@
 import api from "@/utils/api";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast"
+import toast from "react-hot-toast";
+import useFcmToken from "@/hooks/useFcmToken";
 export default function Dashboard() {
 
     const [sessions,setSessions] = useState([]);
     const [startTime,setStartTime] = useState("");
     const [endTime,setEndTime] = useState("");
+    const { token, notificationPermissionStatus } = useFcmToken();
+
+    const handleTestNotification = async () => {
+      console.log(token)
+        const response = await fetch("/api/send-notification", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: token,
+            title: "Test Notification",
+            message: "This is a test notification",
+            link: "/contact",
+          }),
+        });
+    
+        const data = await response.json();
+        console.log(data);
+      };
 
 
 
@@ -81,6 +102,31 @@ export default function Dashboard() {
   return (
     <div>
      <h1 className="text-center my-10 font-bold text-4xl">Settings</h1>
+
+
+     <h1 className="text-center my-10 font-bold text-3xl">Notification Settings</h1> 
+     <div>
+
+     {notificationPermissionStatus === "granted" ? (
+         <p>Permission to receive notifications has been granted.</p>
+         ) : notificationPermissionStatus !== null ? (
+             <p>
+          You have not granted permission to receive notifications. Please
+          enable notifications in your browser settings.
+        </p>
+      ) : null}
+
+      
+<button
+        disabled={!token}
+        className="mt-5 btn btn-sm btn-primary"
+        onClick={handleTestNotification}
+      >
+        Send Test Notification
+      </button>
+      </div>
+
+     <div className="divider"></div>
      <h1 className="text-center my-10 font-bold text-3xl">Study Session Settings</h1>
 
 

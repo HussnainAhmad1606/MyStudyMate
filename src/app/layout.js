@@ -3,6 +3,7 @@ import "@/css/globals.css";
 import Navbar from "@/components/Navbar";
 import {Toaster} from "react-hot-toast"
 import Sidebar from "@/components/Sidebar";
+// import NotificationHandler from "@/components/NotificationHandler";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Toaster/>
         <Navbar/>
+        {/* <NotificationHandler/> */}
         {/* <Sidebar/> */}
         {children}
       </body>
