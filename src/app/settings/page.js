@@ -105,7 +105,7 @@ export default function Dashboard() {
 
 
      <h1 className="text-center my-10 font-bold text-3xl">Notification Settings</h1> 
-     <div>
+     <div className="flex justify-evenly items-center flex-row">
 
      {notificationPermissionStatus === "granted" ? (
          <p>Permission to receive notifications has been granted.</p>
@@ -119,7 +119,7 @@ export default function Dashboard() {
       
 <button
         disabled={!token}
-        className="mt-5 btn btn-sm btn-primary"
+        className="btn btn-sm btn-primary"
         onClick={handleTestNotification}
       >
         Send Test Notification
