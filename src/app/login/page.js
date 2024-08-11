@@ -3,21 +3,29 @@ import { useState } from 'react';
 import axios from 'axios';
 import  toast  from 'react-hot-toast';
 import { useUserStore } from '../../store/store';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const {setUsername, setIsLogin} = useUserStore();
   const [Username, SetUsername] = useState('');
   const [Password, SetPassword] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
 
     try {
       const response = await axios.post('/api/auth/login', { Username, Password });
-      localStorage.setItem('studymate_token', response.data.token);
-      localStorage.setItem('studymate_refresh_token', response.data.refreshToken);
-      setIsLogin(true);
-      setUsername(Username)
-      toast.success('Logged in successfully');
+      if (response.data.type == "success") {
+        localStorage.setItem('studymate_refresh_token', response.data.refreshToken);
+        localStorage.setItem('studymate_token', response.data.token);
+        setIsLogin(true);
+        setUsername(Username)
+        toast.success('Logged in successfully');
+        router.push("/dashboard");
+      }
+      else {
+        toast.error(response.data.message)
+      }
     } catch (error) {
       console.error('Error logging in:', error);
       toast.error('Error logging in');

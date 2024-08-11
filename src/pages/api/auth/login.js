@@ -23,8 +23,8 @@ const loginHandler = async (req, res) => {
     return res.status(401).json({ type: "error", message: 'Invalid username or Password' });
   }
 
-  const token = signToken({ id: user.username }, SECRET_KEY, '1h');
-  const refreshToken = signToken({ id: user.username }, REFRESH_SECRET_KEY, '7d');
+  const token = signToken({ username: user.username }, SECRET_KEY, '1h');
+  const refreshToken = signToken({ username: user.username }, REFRESH_SECRET_KEY, '7d');
 
   res.status(200).json({ type: "success", message: "Logged in Sucess", token: token, refreshToken: refreshToken });
 };

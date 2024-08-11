@@ -4,9 +4,10 @@ import { useRouter } from 'next/navigation';
 import React from 'react'
 function DropdownProfile() {
   const router = useRouter();
-    const {username} = useUserStore();
+    const {username, setIsLogin} = useUserStore();
 
     const logout = () => {
+      setIsLogin(false);
         localStorage.removeItem('studymate_token');
         localStorage.removeItem('studymate_refresh_token');
         router.push("/login")
@@ -27,7 +28,7 @@ function DropdownProfile() {
           
           </Link>
         </li>
-        <li><a>Logout</a></li>
+        <li><button onClick={logout}>Logout</button></li>
       </ul>
     </div>
   )
