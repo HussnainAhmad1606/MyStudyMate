@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.font-small {
+    font-size: 0.875rem;
+  }
+  
+  .font-medium {
+    font-size: 1rem;
+  }
+  
+  .font-large {
+    font-size: 1.25rem;
+  }
