@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import React from 'react'
-import { useUserStore } from '@/store/store'
+import { useUserStore } from '../store/store'
 import DropdownProfile from './DropdownProfile'
 import Sidebar from './Sidebar'
 function Navbar() {

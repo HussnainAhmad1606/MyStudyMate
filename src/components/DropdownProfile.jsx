@@ -1,4 +1,4 @@
-import { useUserStore } from '@/store/store'
+import { useUserStore } from '../store/store'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react'

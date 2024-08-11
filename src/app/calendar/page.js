@@ -1,6 +1,6 @@
 "use client"
 
-import MyCalendar from "@/components/MyCalendar";
+import MyCalendar from "../../components/MyCalendar";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

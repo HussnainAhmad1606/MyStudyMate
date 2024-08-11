@@ -21,8 +21,8 @@ export default function Dashboard() {
           },
           body: JSON.stringify({
             token: token,
-            title: "Test Notification",
-            message: "This is a test notification",
+            title: "Master Theorem",
+            message: "Hi, Its time for Master theorem study session.",
             link: "/contact",
           }),
         });

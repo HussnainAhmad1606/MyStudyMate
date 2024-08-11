@@ -9,6 +9,7 @@ const userSchema = new Schema({
   firstName: { type: String },
   lastName: { type: String },
   password: { type: String },
+  timeSpend: { type: Number, default: 0 },
   sessionTimings: [sessionTimingSchema],
   
 }, { timestamps: true });

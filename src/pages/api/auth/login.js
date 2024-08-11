@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
-import { signToken } from '@/utils/jwt';
-import User from '@/models/User';
-import connectDB from '@/middlewares/connectDB';
+import { signToken } from '../../../utils/jwt';
+import User from '../../../models/User';
+import connectDB from '../../../middlewares/connectDB';
 const SECRET_KEY = process.env.NEXT_PUBLIC_JWT_SECRET;
 const REFRESH_SECRET_KEY = process.env.NEXT_PUBLIC_JWT_REFRESH_SECRET;
 

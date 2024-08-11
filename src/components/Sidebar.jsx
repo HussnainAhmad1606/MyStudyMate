@@ -5,7 +5,7 @@ import { FaHome } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { SiSimpleanalytics } from "react-icons/si";
 import { IoMdSettings } from "react-icons/io";
-import "@/css/sidebar.css";
+import "../css/sidebar.css";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 function Sidebar() {

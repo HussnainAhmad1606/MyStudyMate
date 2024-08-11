@@ -11,6 +11,10 @@ if (!admin.apps.length) {
 }
 
 const notificationHandler = async (request, response) => {
+
+  if (request.body.API_KEY !== process.env.API_SECRET_KEY) {
+    return res.status(401).json({ type: "error", message: 'Unauthorized' });
+  }
   const { token, title, message, link } = request.body;
 
   const payload = {

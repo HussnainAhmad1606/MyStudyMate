@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import  toast  from 'react-hot-toast';
-import { useUserStore } from '@/store/store';
+import { useUserStore } from '../../store/store';
 
 export default function Login() {
   const {setUsername, setIsLogin} = useUserStore();

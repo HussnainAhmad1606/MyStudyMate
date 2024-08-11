@@ -228,7 +228,7 @@ export default function Dashboard() {
   <div className="modal-box">
     <h3 className="font-bold text-lg">Confirm Your Schedule</h3>
     {
-  sampleSessions.map((topic, index)=> {
+  response.map((topic, index)=> {
     return (
       <ScheduleShowcase key={index} subject={topic.subject} title={topic.topic} difficulty={topic.difficulty} startTime={topic.startTime} endTime={topic.endTime}/>
       
