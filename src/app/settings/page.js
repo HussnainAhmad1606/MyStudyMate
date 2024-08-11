@@ -12,6 +12,14 @@ export default function Dashboard() {
     const [endTime,setEndTime] = useState("");
     const { token, notificationPermissionStatus } = useFcmToken();
 
+    const [theme, setTheme] = useState("no");
+    const changeTheme = (theme) => {
+      if (theme === "no") return;
+      console.log(theme);
+      localStorage.setItem("mystudymate-theme", theme);
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+
     const handleTestNotification = async () => {
       console.log(token)
         const response = await fetch("/api/send-notification", {
@@ -126,6 +134,27 @@ export default function Dashboard() {
       </button>
       </div>
 
+     <div className="divider"></div>
+     <h1  className="text-center my-10 font-bold text-3xl">Display Settings</h1>
+<div className="flex justify-center items-center">
+  
+<label className="form-control w-full max-w-xs">
+  <div className="label">
+    <span className="label-text">Pick your theme</span>
+    
+  </div>
+  <select value={theme} onChange={e=>{
+    setTheme(e.target.value);
+    changeTheme(e.target.value);
+  }} className="select select-bordered">
+    <option value={"no"} disabled selected>Pick one</option>
+    <option value={"light"}>Light</option>
+    <option value={"colorblind"}>Color blind</option>
+
+  </select>
+
+</label>
+</div>
      <div className="divider"></div>
      <h1 className="text-center my-10 font-bold text-3xl">Study Session Settings</h1>
 

@@ -16,7 +16,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   
   return (
-    <html lang="en">
+    <html lang="en" data-theme="colorblind">
       <body className={inter.className}>
         <Toaster/>
         <Navbar/>
